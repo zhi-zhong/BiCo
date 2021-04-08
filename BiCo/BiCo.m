@@ -18,10 +18,9 @@ function BiCo(Global)
     
     
     %% Optimization
-    while Global.NotTermination(Population)
-        
+    while Global.NotTermination(Population)  
      AllPop = [Population,ArcPop];  
-     MatingPool = MatingSelection2(Population,ArcPop,Global.N);
+     MatingPool = MatingSelection(Population,ArcPop,Global.N);
      Offspring  = Global.Variation(MatingPool(1:Global.N)); 
      ArcPop = UpdateArc([AllPop,Offspring],Global.N); 
      Population = EnvironmentalSelection([Population,Offspring],Global.N);
